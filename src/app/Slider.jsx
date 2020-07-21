@@ -25,13 +25,15 @@ export default () => {
             <MenuItem>饮料</MenuItem>
             <MenuItem>正餐</MenuItem>
         </SubMenu>
-        <SubMenu title="美妆">
+        <SubMenu title="美妆"
+            icon={<AppstoreOutlined />} 
+        >
             <MenuItem>护肤</MenuItem>
-            <MenuItem>彩妆</MenuItem>
+            <MenuItem>化妆</MenuItem>
         </SubMenu>
-        <SubMenu title="服饰">
+        <SubMenu title="服饰"
+          icon={<AppstoreOutlined />} >
             <MenuItem>穿搭</MenuItem>
-
         </SubMenu>
     </Menu>
     </>
