@@ -17,10 +17,19 @@ export default () => {
       //   type: 'category',
       //   data:[ "内衣","裤子","袜子"]
       // },
-      xAxis: {
-        type: 'category',
-      },
-      yAxis: {},
+      xAxis:[
+        {type: 'category',gridIndex: 0},
+        {type: 'category',gridIndex: 1},
+
+      ],
+      yAxis: [
+        {gridIndex: 0},
+        {gridIndex: 1}
+      ],
+      grid:[
+        {bottom: '55%'},
+        {top: '55%'}
+      ],
       legend: {},
       tooltip: {},
       dataset:{
@@ -34,24 +43,25 @@ export default () => {
       series:[
 
         // 不用dataset
-        // { 
-        //   name: '1月',
-        //   type: 'bar',
-        //   data: [12,35,12]
-        // },
-        // {
-        //   name: '2月',
-        //   type: 'bar',
-        //   data: [26,12,11]
-        // }
+        /*{ 
+          name: '1月',
+          type: 'bar',
+          data: [12,35,12]
+        },
+        {
+          name: '2月',
+          type: 'bar',
+          data: [26,12,11]
+        }*/
 
         // 用dataset
-        // {type: 'bar', seriesLayoutBy: 'row'},
-        // {type: 'bar', seriesLayoutBy: 'row'},
-        // {type: 'bar', seriesLayoutBy: 'row'}
-        {type: 'bar'},
-        {type: 'bar'},
-        {type: 'bar'},
+        {type: 'bar', seriesLayoutBy: 'row'},
+        {type: 'bar', seriesLayoutBy: 'row'},
+        {type: 'bar', seriesLayoutBy: 'row'},
+        /*
+        {type: 'bar',color: 'yellow'},
+        {type: 'bar',color: '#342232'},
+        {type: 'bar'},*/
 
         // 饼图
         {
@@ -63,6 +73,15 @@ export default () => {
             {value:274, name:'联盟广告'},
             {value:310, name:'邮件营销'},
           ]
+        },
+        {
+          type: 'bar',
+          xAxisIndex: 1, 
+          yAxisIndex: 1,
+          encode: {
+            x: 'name',
+            y: '3月'
+          }
         }
       ]
     }
@@ -72,7 +91,7 @@ export default () => {
   return(
     <>
     <Button onClick={changeView}> 点击</Button>
-    <div id="echart01" ref={ref1} style={{width: '1000', height: '400'}}></div>
+    <div id="echart01" ref={ref1} style={{width: '1000', height: '600'}}></div>
     </>
   )
 }

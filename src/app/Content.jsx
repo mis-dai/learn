@@ -2,7 +2,6 @@ import React, { useRef, createRef } from 'react';
 import Slider from './Slider.jsx'
 import Echarts from './echarts/echarts.jsx'
 import { Layout, Menu, Button} from 'antd';
-import echarts from 'echarts/lib/echarts';
 import  'echarts/lib/chart/bar';
 import  'echarts/lib/chart/pie';
 import 'echarts/lib/component/tooltip';
@@ -29,13 +28,11 @@ export default () =>{
                 <Slider />
             </Sider>
             {/* 正文内容 */}
-            <Layout style={{ padding: '0 24px 24px' }}
-              >  
+            <Layout style={{ padding: '0 24px 24px' }}>  
                 <Content style={{background: '#fff'}}>
                   <Echarts />
                 </Content>
             </Layout>
-
         </Layout>
 
     </>
