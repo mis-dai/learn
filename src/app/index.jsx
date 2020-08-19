@@ -1,12 +1,9 @@
 import React, { useRef, createRef } from 'react';
-import Slider from './Slider.jsx'
-import Echarts from './echarts/echarts.jsx'
+import Slider from './slider/index.jsx'
+import Routers from '../routers.js'
 import { Layout, Menu, Button} from 'antd';
-import  'echarts/lib/chart/bar';
-import  'echarts/lib/chart/pie';
-import 'echarts/lib/component/tooltip';
-import 'echarts/lib/component/legend';
-import 'echarts/lib/component/title'
+import Echarts from '../app/echarts/echarts.jsx'
+
 
 export default () =>{
   const { Header, Content, Sider } = Layout
@@ -30,11 +27,12 @@ export default () =>{
             {/* 正文内容 */}
             <Layout style={{ padding: '0 24px 24px' }}>  
                 <Content style={{background: '#fff'}}>
-                  <Echarts />
+                    {/* <Echarts /> */}
+                    <Routers />
                 </Content>
             </Layout>
         </Layout>
-
     </>
   )
 }
+

@@ -1,9 +1,11 @@
-const path = require("path")
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
 
 module.exports = {
   entry: 
-     path.resolve(__dirname,'./src/index.jsx'),
+    path.resolve(__dirname,'./src/index.jsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: "[name].boundle.js"
@@ -11,25 +13,45 @@ module.exports = {
   module:{
     rules:[
       {
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env", "@babel/preset-react"]
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"]
+          }
         }
-      }
       },
       {
         test: /\.(css|less)$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+       },
+       {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              // outputPath: "images/",
+              esModule: false
+            },
+          },
+          ]
+        }
     ]  
     },
   plugins: [
+    // new CleanWebpackPlugin({
+    //   cleanAfterEveryBuildPatterns: ["dist"], // 这个是非必填的
+    //   }),
     new HtmlWebpackPlugin({
       title: "首页",
-      filename: "main.html",   //,默认为index.html
+      // filename: "main.html",   //,默认为index.html
       template: './src/wiew.html'  //指定写的html 模板路径
     })
   ],

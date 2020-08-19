@@ -4,15 +4,34 @@ import { Button, Input } from 'antd';
 // var echarts = require('echarts')
 
 export default () => {
-  const change = () => {
-    document.getElementById("div01").focus()
-    console.log("ceshui",document.getElementById("div01"))
+  const obj = {
+    name: '小鹿',
+    print: () =>{
+      console.log('this2222',this)
+    }
   }
+  obj.print()
+  const change2 = () => {
+    var that = this
+    console.log("this指向",that)
+    // 构造函数
+    let xiaohong = new Person("ming")
+    console.log("11111",xiaohong.name) 
+    // 对象调用
+    obj.print()
+  }
+
+
+  function Person (name){
+    this.name = name,
+    change2.prototype.say = function () {
+      console.log("this1111指向",this1)
+    }
+  }
+
   return(
     <>
-      <Input id="div02" ></Input>
-      <Input id="div01" placeholder="ceshi"></Input>
-      <Button onClick={change}>点击</Button>
+      <Button onClick={change2}>点击2</Button>
 
     </>
   )
