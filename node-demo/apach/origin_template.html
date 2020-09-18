@@ -1,0 +1,21 @@
+<script src="../node_modules/art-template/lib/template-web.js" ></script>
+<script type="text/template"  id="tp1">
+    <!DOCTYPE html>
+    <html lane="en">
+        <head>
+          <title>Document</title>
+        </head>
+        <body>
+            <h1>ceshi </h1>
+          <!-- 在浏览器中 需要引用 -->     
+                hello,world!  我的名字：{{name}}
+        </body>
+    </html>
+</script>  
+<!-- 模板引擎不关心包含的文件类型 只关心里面的字符串 -->
+<script>
+    var name = template("tp1",{
+        name: "Jack"
+    })
+    console.log(name)
+</script>
