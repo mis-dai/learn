@@ -1,7 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
   //1.相当于 var app = createServer() 创建实例
-    var app = express() 
+    var app = express();
     var comments = [
         {
             message: '今天天气不错'
@@ -45,6 +45,7 @@ var bodyParser = require('body-parser')
         //（2）以post方法请求 /view 的时候
           app.post('/comments',(req, res) => {
               var comment = req.body
+              console.log("评论数据",comment)
               comments.push(comment)
               res.redirect('view')
           })
