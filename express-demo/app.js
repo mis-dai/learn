@@ -4,21 +4,11 @@ var router = require('./router')
 
   //1.相当于 var app = createServer() 创建实例
     var app = express();
-    var comments = [
-        {
-            message: '今天天气不错'
-        },
-        {
-            message: '这个作者的文采很优秀'
-        },
-        {
-            message: '我很喜欢这个作者写的一系列的作品'
-        },
-    ]
+
     // 公开指定目录,可以直接访问路径
-        // app.use('/views',express.static('views'))
+        // app.use('/views',express.static('views')) 第一个参数是虚拟路径
         app.use('/public/', express.static('public')) //等同于app.use('/public/', express.static('./public/'))
-        app.use('/node_modules/', express.static('node_modules'))
+        app.use('/modules/', express.static('node_modules'))
 
     // 模板引擎 第一个参数为访问文件类型  要在挂载之前（router）
         app.engine('html',require('express-art-template'))
@@ -33,3 +23,6 @@ var router = require('./router')
         app.listen(3000,() => {
           console.log("server is running")
         })
+
+
+

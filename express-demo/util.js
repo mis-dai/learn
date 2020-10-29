@@ -22,6 +22,7 @@
 var dbPath = './db.json'
 var fs = require('fs')
 
+/* 读取文件 */
 exports.findAll = (callback) => {
     fs.readFile(dbPath,'utf-8',(err, data) => {
         if(err) {
@@ -31,12 +32,14 @@ exports.findAll = (callback) => {
     })
 }
 
+/* 添加 */
 exports.add = (infor, callback) => {
     fs.readFile(dbPath, 'utf-8',(err, data) => {
         if(err) {
             return callback(err)
         }
         var comments = JSON.parse(data).comments
+        console.log("数组", comments)
         comments.push(infor)
         var newData = JSON.stringify({
               comments: comments
@@ -45,7 +48,19 @@ exports.add = (infor, callback) => {
             if(err) {
                 return callback(err)
             }
+            
             callback(null)
         })
     })
+}
+
+/**/
+exports.delete = (index, callback) => {
+  fs.readFile(dbPath, (err, data) => {
+    if(err) {
+      return callback(err)
+    }
+    var comments = JSON.parse(data).comments
+
+  })
 }

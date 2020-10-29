@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-       <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css"> 
+      <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.css"> 
   </head>
+  <script >
+      function de(index) {
+        console.log("下表",index)
+      }
+  </script>
   <body>
       <ul class="list-group">
         标题：{{title}}
         {{each comments}}
           <li class="list-group-item">评论{{$index}}: {{$value.message}}</li>
+          <!-- <a class="btn btn-primary"  role="button" onclick="de({{$index}})">删除</a> -->
         {{/each}}
       </ul>
       <br>
