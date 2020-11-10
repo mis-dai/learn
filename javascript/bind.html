@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <button >点击</button>
+    <script >
+      var btn = document.querySelector('button')
+      btn.onclick = function() {
+        this.disabled = true;
+        setTimeout(function() {
+          this.disabled = false; //setimeout里的函数里的this 指向window
+        }.bind(this), 3000) //bind里面this 指向btn 
+      }
+  </script>
+
+  <script>
+    function fn() {
+        var num = 10;
+        function fun() {
+          console.log(num)
+        }
+         return fun
+      }
+      var f = fn()
+      // 
+
+  </script>
+  </body>
+</html>
