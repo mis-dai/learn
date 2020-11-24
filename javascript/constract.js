@@ -21,14 +21,15 @@ function Father(x, y){
   Father.prototype.dance = function() { //不会占内存 实现方法共享
     console.log("跳舞")
   }
-  var father = new Father("father")
+  var father = new Father("father","fathername")
   console.log(father.dance())
   console.log('-----方法共享-------')
+  
 
 //列子：数组内扩展一个方法 求累加和
   Array.prototype.add = function() {
     var sum = 0
-    for(i=0; i < this.length; i++) {
+    for(i = 0; i < this.length; i++) {
       sum += this[i]  //原型对象和构造函数里的this 都指向实例
     }
     return sum
@@ -47,7 +48,7 @@ function Father(x, y){
     }
     Son.prototype = new Father() //将父构造函数实例化变为子的原型对象
     Son.prototype.constructor = Son  //利用对象的形式修改原型对象，别忘了利用constructor指回原来的构造函数
-    var son = new Son('小李')
+    var son = new Son('红')
     console.log(son)
     son.dance()
 
@@ -80,6 +81,8 @@ function Father(x, y){
     //子
     var son = new People("son")
     console.log(son.name)
+
+    
   console.log('----es6的class--------')
   function bubbleSort(arr) {
     var len = arr.length;

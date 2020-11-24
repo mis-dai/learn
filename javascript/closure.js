@@ -94,9 +94,14 @@
         return a.filed > b.filed ? 1 : -1
       }
    }
-   console.table(arr2.sort(f5("age")))
+   console.table(arr2)
+   console.log("___分割_______")
    
-
+const n = 100;
+const arr3 = [100,200]
+arr3[0] = 20;
+// arr3 = [20,10] 
+console.log(arr3)
    
 
 

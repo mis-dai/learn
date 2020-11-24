@@ -20,13 +20,22 @@ var p1 = new Promise((resolve, reject) => {
 p1
   .then((data) => { //当前resolve状态的结果
     console.log("数据",data)
-    return 2  // 1.return xxx 后面的then 就接收xxx; 2.没有return的话 后面接受 undefine; 3. return 一个新promise对象的时候 ，后面就变成接收 新promise的resolve 结果
+    return "hello,world"  // 1.return xxx 后面的then 就接收xxx; 2.没有return的话 后面接受 undefine; 3. return 一个新promise对象的时候 ，后面就变成接收 新promise的resolve 结果
   })
   .then((data2) => {
       console.log(data2)
     }, (err) => {
       console.log("err")
   })
+
+
+// new Promise((resolve, reject) => {
+//   resolve("成功")
+// }).then(value => {
+//     if(value !== "success") {
+//       return Promise.reject("fail")
+//     }
+// }).catch(err => console.info("失败信息："+err)) 
 
   
 
