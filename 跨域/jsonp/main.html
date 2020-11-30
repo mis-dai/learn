@@ -3,15 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Document</title>
+  <title>jsonp</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
   <script>
     function show(meg) {
       document.write(meg)
     }
+
+    function show2(res) {
+      alert(res)
+      $("body>script:last").remove()
+    }
     // show("你好")
   </script>
-  <script src="http://169.254.180.179:3000"></script> 
+
+  <!--方案二-->
+  <!-- <script src="http://169.254.180.179:3000"></script> -->
+
+  <!--方案三-->
+  <script src="http://169.254.180.179:3000?callback=show"></script> 
+
+  <!--方案四-->
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+          var scritp = document.createElement("script")
+          scritp.src=`http://169.254.180.179:3000?callback=show2`
+          document.body.appendChild(scritp); 
+      })   
+    })
+  </script>
+  </br></br></br>
+  <button>点击</button>
 </body>
 </html>
