@@ -33,3 +33,12 @@ queue(arr)
 
 // test(arr2) //测试练习
 
+function test(obj) {
+ obj.reduce((promis,item) => {
+    return promise.then(() => {
+      return new Promise(resolve => {
+        setTimeout
+      })
+    })
+ },Promise.resolve())
+}

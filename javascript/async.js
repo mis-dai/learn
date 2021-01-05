@@ -1,6 +1,7 @@
 //async 和 await
+//async 表示函数里有异步操作，await 表示紧跟在后面的表达式需要等待结果。
 //await 只在async里面，命令后面接的是一个Promise对象，等待Promise对象状态发生变化，得到返回值，但是也可以接任意表达式的返回结果
-
+//maybe
 async function hd() {
 
 }
