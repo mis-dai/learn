@@ -91,10 +91,11 @@
    
    function f5(filed) {
       return function(a, b) {
-        return a.filed > b.filed ? 1 : -1
+        return a[filed] > b[filed] ? 1 : -1
+        // return a[filed] - b[filed]
       }
    }
-   console.table(arr2)
+   console.info(arr2.sort(f5('age')))
    console.log("___分割_______")
    
 const n = 100;
@@ -103,6 +104,15 @@ arr3[0] = 20;
 // arr3 = [20,10] 
 console.log(arr3)
    
+function ar(ar) {
+    var arr =[]
+    var result = arr.concat(...ar)
+    console.info(result)
+    return result
+}
+
+ar([1,2,3,[5,6]])
+
 
 
 

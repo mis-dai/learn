@@ -1,14 +1,16 @@
+    
+    //基本数据类型的赋
     //3.块级作用域
     // let a1 = 1 
      //let 在同一个作用域下声明同个变量 会报错，在不同作用域下 就是不同的内存
     // console.log(a1)
     //for 系列特殊函数 具有块作用域的性质
 
-    // var   //var 没有块的特性
-    for (var i = 1; i <= 3; i++) {
+    // var   //var 没有块的特性,是函数作用域，此时无函数 所以变成全局作用域
+    for (var i = 1; i < 5; i++) {
       console.log(i)
     }
-    console.log('打印：'+i) //实际改的时候是改地全局 window.i
+    console.log('打印：',i) //v实际改的时候是改地全局 window.i
 
     for(let j = 1; j <= 3; j++) {
       console.log(j)
@@ -20,7 +22,7 @@
         console.log(m1)
       }, 1000)
     } 
-    
+
     for(var m2 = 2; m2 <= 4; m2++) {
       setTimeout(() => {
         console.log(m2)
@@ -36,4 +38,6 @@
       } )(m3);
     }
 
+    //承建的请求头 参数： accept accept-language  content-type connection  cookie
+    //响应透：Set-Cookie  cache-control  content-type 
 
