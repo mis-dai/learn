@@ -1,46 +1,41 @@
-import  React from 'react'
+import  React, {useState} from 'react'
 import  { Menu } from 'antd'
-import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
-import MenuItem from 'antd/lib/menu/MenuItem';
+import { MailOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom'
+import { rotues } from './menuData.js'
 
 
 export default () => {
  const { SubMenu } = Menu
+ const { menuList} =  rotues()
+
+//  方法
+const jump = ({ item, key, keyPath, domEvent }) => {
+  console.log("跳转",item)
+  console.log("跳转",key)
+  console.log("跳转",keyPath)
+  console.log("跳转",domEvent)
+
+}
+
   return(
     <>
-        <Menu mode="inline">
-            <SubMenu key="sub1"
-                icon={<MailOutlined />} 
-                title="运动"
-            >
-                <Menu.Item><Link to="/bootstrap">瑜伽</Link></Menu.Item>
-                <Menu.Item><Link to="/sports">跑步</Link></Menu.Item>
-            </SubMenu>
-
-            <SubMenu key="sub2"
-                icon={<AppstoreOutlined />} 
-                title="饮食"
-            >
-                <MenuItem>水果</MenuItem>
-                <MenuItem>饮料</MenuItem>
-                <MenuItem><Link to="/foods">正餐</Link></MenuItem>
-            </SubMenu>
-
-            <SubMenu key="sub3"
-                title="美妆"
-                icon={<AppstoreOutlined />} 
-            >
-                <MenuItem>护肤</MenuItem>
-                <MenuItem>化妆</MenuItem>
-            </SubMenu>
-
-            <SubMenu key="sub4"
-              title="服饰"
-              icon={<AppstoreOutlined />}
-            >
-                <MenuItem>穿搭</MenuItem>
-            </SubMenu>
+          {/* 循环多层  要return 多层才能拿到值 */}
+            {/* { menuList.map((item, index) => {
+                 return item.children.map((it, i) => {
+                    return <h1>{it.name}</h1>
+                    })
+                })
+            } */}
+        <Menu  mode="inline" onClick={jump}>
+            { menuList.map((item, index) => {
+              return  <SubMenu key={index} icon={<MailOutlined />} title={item.name}>
+                      {item.children.map((it,i) => {
+                        return <Menu.Item key={it.url} >{it.name}</Menu.Item>
+                        })}
+                      </SubMenu>
+              })
+            }
         </Menu>
     </>
   )
