@@ -7,7 +7,7 @@ var main ={
     },
     fn2: function(){
         setTimeout(() => {
-            console.log(this.name)
+            console.log(this.name)   //setTimeout 只是调用  () => {} 是在fn2里这个方法里声明
         })
     }
 }
