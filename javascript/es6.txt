@@ -1,0 +1,28 @@
+
+浏览器模块化：
+    1、amd   require
+    2、cmd   sea
+
+服务器模块化：
+common.js 
+    1、 导出： module.export 和 exports
+    2、 导入： require(')
+
+
+大一统模块化
+es6模块化的基本语法
+
+1、默认导入导出
+    默认导出 export default 
+    默认导入 import xx from '' 此时不需要加 {}
+
+2、按需导入和导出
+    export let m = xx
+    export function say() {
+        
+    }
+
+    import { m, say as a } from ''
+
+
+
