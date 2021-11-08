@@ -1,0 +1,11 @@
+TPC/IP协议栈，主要解决数据如何在网络中传输，而HTTP是应用层协议，主要解决如何包装数据。
+把IP想像两个站点，TCP和UDP是高速公路，HTTP 、FTP 就是货车，而 Socket 就是两个站点的检票口。
+货车(http)在一端站点(ip)先通过检票口(socket)，检票后行驶在高速公路(tcp)上，到达另一站点(ip)卸载货物(http)。
+HTTP，WebSocket，TCP，UDP，IP都是协议，而 TCP/IP 是不同协议的组合，通常称之为 协议栈，是为了完成对应功能而制定的统一规则。
+
+
+
+http 长连接： HTTP/1.1 中的 keep-alive 所保持的长连接   （客户端向服务器发送请求）
+websoket 长连接： 基于Http协议的扩展，支持长连接，用于建立客户端和服务器的双向通道  （服务器主动给客户端推送消息）
+
+具体网页地址：https://juejin.cn/post/6945276190965891108#https://www.jianshu.com/p/bae7ea3e9adb
