@@ -37,6 +37,25 @@ p1
 //     }
 // }).catch(err => console.info("失败信息："+err)) 
 
+
+/**
+ 注意点
+*/
+
+Promise.resolve(1)
+.then(res => {
+    return 2
+})
+.then(
+    Promise.resolve(5)
+)
+.then(console.log )
+
+//此时打印的是2  因为值穿透
+/**
+ .then 或者 .catch 的参数期望是函数，传入非函数则会发生值穿透,值return 
+*/
+
   
 
 
