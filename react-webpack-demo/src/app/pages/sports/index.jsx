@@ -2,9 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import {store, Context} from './store.js'
 import { Detail } from './detail.jsx'
 import { post, get } from '../../../axios.js'
+import  { API } from '../../request.js'
 
 export default () => {
   const values = store()
+  const { requestUrl } = API
   const {data, setData} = values
     const root = useRef(null)
   console.log(this)
@@ -16,7 +18,7 @@ export default () => {
 
   // 请求
   const request = ()  => {
-    post('https://preapi.qilelive.com/web/activity/ranking/anchor/stage',
+    post(requestUrl,
     {
       stageId: 247,
       pageSize: 30
